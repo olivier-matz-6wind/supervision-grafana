@@ -29,10 +29,6 @@
   "repeat": "interfaces",
   "seriesOverrides": [
     {
-      "alias": "/sent.*/",
-      "transform": "negative-Y"
-    },
-    {
       "alias": "/sent-speed.*/",
       "dashes": true,
       "legend": false
@@ -137,123 +133,6 @@
               "* 8"
             ],
             "type": "math"
-          }
-        ]
-      ],
-      "tags": [
-        {
-          "key": "host",
-          "operator": "=~",
-          "value": "/^$host$/"
-        },
-        {
-          "condition": "AND",
-          "key": "name",
-          "operator": "=~",
-          "value": "/^$interfaces$/"
-        }
-      ]
-    },
-    {
-      "alias": "$col [$tag_name]",
-      "dsType": "influxdb",
-      "groupBy": [
-        {
-          "params": [
-            "name"
-          ],
-          "type": "tag"
-        },
-        {
-          "params": [
-            "previous"
-          ],
-          "type": "fill"
-        }
-      ],
-      "measurement": "network-nic-hw-info",
-      "orderByTime": "ASC",
-      "policy": "default",
-      "refId": "C",
-      "resultFormat": "time_series",
-      "select": [
-        [
-          {
-            "params": [
-              "speed"
-            ],
-            "type": "field"
-          },
-          {
-            "params": [
-              "* 8"
-            ],
-            "type": "math"
-          },
-          {
-            "params": [
-              "recv-speed"
-            ],
-            "type": "alias"
-          }
-        ]
-      ],
-      "tags": [
-        {
-          "key": "host",
-          "operator": "=~",
-          "value": "/^$host$/"
-        },
-        {
-          "condition": "AND",
-          "key": "name",
-          "operator": "=~",
-          "value": "/^$interfaces$/"
-        }
-      ]
-    },
-    {
-      "alias": "$col [$tag_name]",
-      "dsType": "influxdb",
-      "groupBy": [
-        {
-          "params": [
-            "name"
-          ],
-          "type": "tag"
-        },
-        {
-          "params": [
-            "previous"
-          ],
-          "type": "fill"
-        }
-      ],
-      "measurement": "network-nic-hw-info",
-      "orderByTime": "ASC",
-      "policy": "default",
-      "rawQuery": false,
-      "refId": "D",
-      "resultFormat": "time_series",
-      "select": [
-        [
-          {
-            "params": [
-              "speed"
-            ],
-            "type": "field"
-          },
-          {
-            "params": [
-              "* 8"
-            ],
-            "type": "math"
-          },
-          {
-            "params": [
-              "sent-speed"
-            ],
-            "type": "alias"
           }
         ]
       ],

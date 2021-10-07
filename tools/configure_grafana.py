@@ -203,6 +203,21 @@ def upload_dashboards(session, config, default_datasource):
         print(dashboard_post.text)
 
 #------------------------------------------------------------------------------
+def upload_preferences(session, config):
+    """
+    Upload preferences found in configuration to grafana.
+    """
+    if not 'preferences' in config:
+        return
+
+    preferences_post = session.post(
+        os.path.join(get_grafana_url(config), 'api', 'preferences'),
+        data=json.dumps(config['preferences']),
+        headers={'content-type': 'application/json'},
+    )
+    print(preferences_post.text)
+
+#------------------------------------------------------------------------------
 def main():
     """
     Main.
@@ -219,6 +234,7 @@ def main():
 
     default_datasource = upload_datasources(session, config)
     upload_dashboards(session, config, default_datasource)
+    upload_preferences(session, config)
 
 if __name__ == '__main__':
     main()

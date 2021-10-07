@@ -133,3 +133,6 @@ grafana:
   port: 3000
   user: admin
   password: admin
+
+preferences:
+  theme: light

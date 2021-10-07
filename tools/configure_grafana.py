@@ -210,12 +210,12 @@ def upload_preferences(session, config):
     if not 'preferences' in config:
         return
 
-    preferences_post = session.post(
-        os.path.join(get_grafana_url(config), 'api', 'preferences'),
+    preferences_put = session.put(
+        os.path.join(get_grafana_url(config), 'api', 'user', 'preferences'),
         data=json.dumps(config['preferences']),
         headers={'content-type': 'application/json'},
     )
-    print(preferences_post.text)
+    print(preferences_put.text)
 
 #------------------------------------------------------------------------------
 def main():

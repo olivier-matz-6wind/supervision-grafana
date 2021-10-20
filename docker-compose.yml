@@ -19,9 +19,10 @@ services:
     depends_on:
       - influxdb
     volumes:
-      - /root/webapp/static/6wind-logo.svg:/opt/bitnami/grafana/public/img/grafana_icon.svg:rw
-      - /root/webapp/static/6wind-logo.svg:/opt/bitnami/grafana/public/app/plugins/datasource/loki/img/grafana_icon.svg:rw
-      - /root/webapp/static/6wind-logo.svg:/opt/bitnami/grafana/public/img/grafana_com_auth_icon.svg:rw
+      - ./6wind-logo.svg:/opt/bitnami/grafana/public/img/grafana_icon.svg:rw
+      - ./6wind-logo.svg:/opt/bitnami/grafana/public/app/plugins/datasource/loki/img/grafana_icon.svg:rw
+      - ./6wind-logo.svg:/opt/bitnami/grafana/public/img/grafana_com_auth_icon.svg:rw
+      - ./6wind-logo-semiwhite.svg:/opt/bitnami/grafana/public/img/grafana_typelogo.svg:rw
   influxdb:
     # Full tag list: https://hub.docker.com/r/library/influxdb/tags/
     image: "public.ecr.aws/influxdb/influxdb:1.7.10"

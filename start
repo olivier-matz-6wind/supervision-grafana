@@ -25,9 +25,10 @@ docker-compose up -d
 tools/configure_grafana.py $(realpath $1)
 
 # hack to display 6WIND logo
-docker exec -it grafana rm ./public/img/grafana_typelogo.svg
 docker exec -it grafana bash -c "sed -i 's,sidemenu__logo img{width:30px,sidemenu__logo img{width:130px,' ./public/build/grafana.light.*.css"
 docker exec -it grafana bash -c "sed -i 's,\.sidemenu{\(.*\);width:60px,\.sidemenu{\1;width:160px,' ./public/build/grafana.light.*.css"
+docker exec -it grafana bash -c "sed -i 's,\.login-logo{,.login-logo{max-heigth:0;,' ./public/build/grafana.light.*.css"
+docker exec -it grafana bash -c "sed -i 's,\.login-logo{,.login-logo{max-heigth:0;,' ./public/build/grafana.dark.*.css"
 
 echo
 echo "Go to http://localhost:3000 for Grafana dashboard (admin/admin)"

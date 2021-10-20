@@ -30,7 +30,7 @@ dashboards:
     enabled: yes
     title: network-overview
     rows:
-      - title: $host
+      - title: 6WIND_$host
         panels:
           - base-network-traffic
         repeat: host
@@ -42,7 +42,7 @@ dashboards:
     enabled: yes
     title: debug-overview
     rows:
-      - title: $host
+      - title: 6WIND_$host
         panels:
           - base-uptime
           - base-fp-status

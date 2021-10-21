@@ -136,4 +136,4 @@ grafana:
 
 preferences:
   theme: light
-  homeDashboardId: 2
+  homeDashboardId: 3

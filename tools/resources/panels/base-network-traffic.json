@@ -1,5 +1,14 @@
 {
-  "aliasColors": {},
+  "aliasColors": {
+    "recv [clear]": "blue",
+    "sent [clear]": "red",
+    "recv [enc]": "blue",
+    "sent [enc]": "red",
+    "recv [wan]": "blue",
+    "sent [wan]": "red",
+    "recv [www]": "blue",
+    "sent [www]": "red"
+  },
   "bars": false,
   "dashLength": 10,
   "dashes": false,
